@@ -15,6 +15,7 @@ public class AddCommand extends Command {
 
     /**
      * Executes the "add" command.
+     * @throws FridgetException exception thrown when Command class is executed.
      */
     @Override
     public void execute(Ui ui, Parser parser, IngredientList ingredientList) {
