@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Developer Guide | tp</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Developer Guide" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/DeveloperGuide.html" />
+<meta property="og:url" content="http://localhost:4000/DeveloperGuide.html" />
+<meta property="og:site_name" content="tp" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Developer Guide" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Developer Guide","url":"http://localhost:4000/DeveloperGuide.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ae3da29a08a610315cb350bae1f8fb4ee6f9a321">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Developer Guide</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/alvynben/tp" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="developer-guide">Developer Guide</h1>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<ul>
+  <li>Inspired by <a href="https://se-education.org/addressbook-level3/DeveloperGuide.html#architecture">AddressBook-Level3 (AB3) DG</a>.</li>
+  <li>Additional library used include <a href="https://github.com/fusesource/jansi">JANSI</a>.</li>
+</ul>
+
+<h2 id="setting-up-fridget">Setting Up Fridget</h2>
+<p>Refer to User Guide section on <a href="https://ay2122s1-cs2113t-w12-4.github.io/tp/UserGuide.html#:~:text=be%20more%20efficient.-,Quick%20Start,-Ensure%20that%20you">Quick Start</a>.</p>
+
+<h2 id="design--implementation">Design &amp; implementation</h2>
+
+<h3 id="adding-items-into-fridget">Adding Items Into Fridget</h3>
+
+<h4 id="main-objectives">Main Objectives:</h4>
+
+<p>The functionality to add items is bound by two main objectives:</p>
+<ul>
+  <li>Make adding items convenient for the user</li>
+  <li>Parse enough information about the ingredient to benefit the user in the future</li>
+</ul>
+
+<p>As a result, the current iteration requires two pieces of info from the user:</p>
+<ul>
+  <li>The name of the ingredient</li>
+  <li>The expiry date of the ingredient</li>
+</ul>
+
+<p>This is done to minimize the input required from the user per entry, while maximising future uses with the data.</p>
+
+<p>Future uses include:</p>
+<ul>
+  <li>Finding if an ingredient exists by searching for its name</li>
+  <li>Combining ingredients with similar names and expiry together</li>
+  <li>Sort all ingredients by expiry date</li>
+  <li>Remind users of expiring ingredients by name</li>
+</ul>
+
+<h4 id="overall-sequence">Overall Sequence:</h4>
+
+<p><img src="/umlDiagrams/AddSequence.png" alt="image info" /></p>
+
+<p>Step 1:</p>
+
+<p>This step is almost always initiated by Fridget, but could potentially be done by another class in the future.</p>
+
+<p>Step 2 &amp; 3:</p>
+
+<p>The parseIngredientForAdding() method is called in Parser, with the currentUserInput as a parameter.
+The parser returns an Ingredient with the name and expiry date specified in the user input.</p>
+
+<p>Step 4:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>If the user uses the ‘</td>
+      <td>’ character in the ingredient’s name, an exception is thrown.</td>
+    </tr>
+    <tr>
+      <td>This is done as the ‘</td>
+      <td>’ may confuse the Storage class.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Step 5 &amp; 6:</p>
+
+<p>The Ingredient is added to IngredientList.
+IngredientList returns a value signifying the current quantity of Ingredient in IngredientList.</p>
+
+<p>Step 7 &amp; 8:</p>
+
+<p>If the Ingredient already exists in Fridget’s IngredientList, print a message with the Ui to signify that the quantity of the existing item has increased to the user.</p>
+
+<p>Step 9 &amp; 10:</p>
+
+<p>If the ingredient does not exist, print a message using Ui to signify to the user that a new Ingredient has been added into Fridget.</p>
+
+<p>Step 11:</p>
+
+<p>The execution of the execute() method ends.</p>
+
+<h3 id="removing-items-from-fridget">Removing Items From Fridget</h3>
+
+<h3 id="getting-help-manual">Getting Help Manual</h3>
+
+<h4 id="main-objectives-1">Main Objectives:</h4>
+
+<p>The objective of a help manual in Fridget is to ensure users are equipped with the basic knowledge to get 
+started with Fridget.</p>
+
+<p>The idea behind an inbuilt help manual is to ensure Fridget is convenient and reduce the heavy reference of 
+the User Guide.</p>
+
+<p>Future uses include:</p>
+<ul>
+  <li>More in-depth coverage of all basic functions.</li>
+  <li>Interactive component to explore capabilities of each commands.</li>
+</ul>
+
+<h4 id="sequence-of-execution">Sequence of execution:</h4>
+
+<p><img src="/umlDiagrams/HelpSequence.png" alt="image info" /></p>
+
+<p>Step 1:</p>
+
+<p>The execution of the Help Command is initiated by Fridget.</p>
+
+<p>Step 2 &amp; 3:</p>
+
+<p>The printLine() method is called in the Ui which prints out the String that is input into the method, 
+in this case it is the help manual.</p>
+
+<p>Step 4:</p>
+
+<p>The execution of the execute() method ends.</p>
+
+<h3 id="resetting-item-list-in-fridget">Resetting Item List In Fridget</h3>
+
+<h4 id="main-objectives-2">Main Objectives:</h4>
+
+<p>The objective of the reset functionality is to provide users an easy way to remove all the items in Fridget.</p>
+
+<h4 id="overall-sequence-1">Overall Sequence:</h4>
+
+<p><img src="/umlDiagrams/ResetSequence.png" alt="image info" /></p>
+
+<p>Step 1:</p>
+
+<p>The execution of this step is initiated by Fridget.</p>
+
+<p>Step 2 &amp; 3:</p>
+
+<p>If the user double confirms the reset command, the resetList() method is called in the IngredientList and resets 
+the ingredient list by overwriting it with a new ingredient list.</p>
+
+<p>Step 4 &amp; 5:</p>
+
+<p>The printResetMessage() method is called in the Ui which prints a String stating that the ingredient list has been reset.</p>
+
+<p>Step 6:</p>
+
+<p>The execution of the execute() method ends.</p>
+
+<h3 id="listing-items-in-fridget">Listing Items In Fridget</h3>
+
+<h4 id="main-objectives-3">Main Objectives:</h4>
+
+<p>The functionality to list items is bound by two main objectives:</p>
+<ul>
+  <li>Allow users to easily view the contents of Fidget.</li>
+  <li>Allow users to choose their preferred sort type.</li>
+</ul>
+
+<p>As a result, the current iteration optionally requires an additional info from the user:</p>
+<ul>
+  <li>The sort type of the list.</li>
+</ul>
+
+<p>This additional is optional as the default settings sorts the list by ingredient name.</p>
+
+<h4 id="overall-sequence-2">Overall Sequence:</h4>
+
+<p><img src="/umlDiagrams/ListSequence.png" alt="image info" /></p>
+
+<p>Step 1:</p>
+
+<p>This step is almost always initiated by Fridget, but could potentially be done by another class in the future.</p>
+
+<p>Step 2 &amp; 3:</p>
+
+<p>The parseSortTypeForList() method is called in Parser, with the currentUserInput as a parameter.
+The parser returns a String as sortType with the detected sort type in the user input.</p>
+
+<p>Step 4 &amp; 5:</p>
+
+<p>The getIngredientList() method is called in IngredientList, with the sortType as a parameter.
+The IngredientList returns an ArrayList<Ingredient> as listOfIngredients that are sorted according to the sort type.</Ingredient></p>
+
+<p>Step 6 &amp; 7:</p>
+
+<p>The printListMessage() method is called in Ui, with the listOfIngredient, and sortType as parameters.
+The Ui prints out the list of Ingredients for the user.</p>
+
+<p>Step 8:</p>
+
+<p>The execution of the execute() method ends.</p>
+
+<h3 id="finding-items-in-fridget">Finding Items In Fridget</h3>
+
+<h3 id="listing-items-expiring-in-fridget">Listing Items Expiring In Fridget</h3>
+
+<h3 id="configuring-notifications">Configuring Notifications</h3>
+
+<h4 id="main-objectives-4">Main Objectives:</h4>
+
+<p>The objective of the notification based on current functionality is to print out a reminder notification 
+to remind users to eat healthily.</p>
+
+<p>Current implementation allow users to toggle the notifications on or off, with reminders sent out at intervals of 6 hours.</p>
+
+<p>The purpose of implementing time interval and ability to toggle is to prevent excessive notification printing.</p>
+
+<p>Future uses include:</p>
+<ul>
+  <li>Notification on expired and expiring items printed.</li>
+  <li>Notification on items that are rarely used.</li>
+</ul>
+
+<h4 id="sequence-of-execution-1">Sequence of execution:</h4>
+
+<h3 id="exiting-from-fridget">Exiting From Fridget</h3>
+
+<h2 id="product-scope">Product scope</h2>
+<h3 id="target-user-profile">Target user profile</h3>
+
+<p><b>Tech-savvy Families</b> who cook at home, buy groceries, and own a fridge</p>
+
+<h3 id="value-proposition">Value proposition</h3>
+
+<p>Nowadays, fridges are operated manually. Hence, users need to go through item by item manually to perform any function related to their fridge, for example:</p>
+<ul>
+  <li>Figuring out what food is close to expiring</li>
+  <li>Figuring out if they have enough ingredients for a certain recipe</li>
+  <li>Figuring out if they are any recipes that they can make with their ingredients</li>
+  <li>Adding/removing items into/from the fridge and storing it in a ledger</li>
+  <li>Find out items that need to be bought soon</li>
+</ul>
+
+<p>This CLI based application hopes to automate a lot of the tasks users have relating to the fridge, for example:</p>
+<ul>
+  <li>Automated reminder for items nearing expiry or items requiring replenishment</li>
+  <li>Automated housekeeping: Storing items that are added/removed in a central ledger</li>
+  <li>Automated shopping list: Listing out missing ingredients for meals that users want to cook</li>
+</ul>
+
+<h2 id="user-stories">User Stories</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>As a …</th>
+      <th>I want to …</th>
+      <th>So that I can …</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>v1.0</td>
+      <td>busy house-husband</td>
+      <td>easily find out if I have a certain item in the fridge</td>
+      <td>spend less time checking through my Fridge</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>busy house-husband</td>
+      <td>easily add or remove an item into the Fridget</td>
+      <td>spend less time writing down and scratching out items on a written ledger</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>busy house-husband</td>
+      <td>easily find out expiry date of ingredient</td>
+      <td>spend less time going through every ingredient.</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>frugal house-husband</td>
+      <td>know what foods are about to expire</td>
+      <td>quickly use them before they become inedible</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>perfectionist house-husband</td>
+      <td>reset the list of items in Fridget</td>
+      <td>start using Fridget after not using it for a while, or after initial testing with fake items</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>new user</td>
+      <td>have a manual instructions</td>
+      <td>easily navigate through the cli app</td>
+    </tr>
+    <tr>
+      <td>v1.0</td>
+      <td>fitness fanatic</td>
+      <td>have health-focused reminders for family members to eat more fruits and healthy snacks</td>
+      <td>my family can be healthy together</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>user</td>
+      <td>find a to-do item by name</td>
+      <td>locate a to-do without having to go through the entire list</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>forgetful house-husband</td>
+      <td>be reminded on items nearing expiry</td>
+      <td>use it before its too late</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>busy house-husband</td>
+      <td>check if any ingredient requires me to replenish</td>
+      <td>easily curate my shopping list</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>forgetful house-husband</td>
+      <td>check my recently thrown items in the past week</td>
+      <td>know what items to restock</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>lazy house-husband</td>
+      <td>add items I always want to have in the fridge</td>
+      <td>add to the shopping list immediately after it runs out</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>lazy house-husband</td>
+      <td>update the amount that is left of the item</td>
+      <td>know if it is very urgent to consume when it nears expiry</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>forgetful house-husband</td>
+      <td>be informed of what has not been used for a long time</td>
+      <td>utilise the item more</td>
+    </tr>
+    <tr>
+      <td>v2.0</td>
+      <td>lazy house-husband</td>
+      <td>I want to be able to add multiple items at once</td>
+      <td>type lesser commands to add them in</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="non-functional-requirements">Non-Functional Requirements</h2>
+
+<ol>
+  <li>Fridget should operate on most OS with Java <code class="language-plaintext highlighter-rouge">11</code> installed.</li>
+  <li>A user with a fast typing speed should be able to fully optimize the usage of Fridget.</li>
+  <li>Coloured dates should be able to display on most OS.</li>
+</ol>
+
+<h2 id="glossary">Glossary</h2>
+
+<ul>
+  <li><strong>OS</strong>: Windows, Linux, OS X</li>
+</ul>
+
+<h2 id="instructions-for-manual-testing">Instructions For Manual Testing</h2>
+
+<p>{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}</p>
+
+<h3 id="launch-and-shutdown">Launch And Shutdown</h3>
+<ol>
+  <li>Initial launch
+    <ol>
+      <li>Download the jar file, <a href="https://github.com/AY2122S1-CS2113T-W12-4/tp/releases/download/v1.0/fridget.jar">Fridget.jar</a> and copy into empty folder.</li>
+      <li>Double-click the file to launch the app or enter command <code class="language-plaintext highlighter-rouge">java -jar Fridget.jar</code> into command window to start the program.</li>
+    </ol>
+  </li>
+  <li>Shutting down
+    <ol>
+      <li>A typical file shutdown would be using <code class="language-plaintext highlighter-rouge">exit</code> command. Items added will be retained and saved in the text file and loaded on next launch.</li>
+      <li>Exiting by closing the window is permitted but not encouraged.</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="adding-items">Adding Items</h3>
+
+<h3 id="deleting-items">Deleting Items</h3>
+
+<h3 id="listing-items">Listing Items</h3>
+
+<h3 id="saving-and-loading-data">Saving And Loading Data</h3>
+<ol>
+  <li>Saving and loading data is automated as long as file is not corrupted.
+    <ol>
+      <li>To track your data in terms of a text file, open up fridgetData folder to access savedList.txt.</li>
+      <li>Do not modify any items in the text file which could cause corruption to file.</li>
+    </ol>
+  </li>
+  <li>Dealing with missing file.
+    <ol>
+      <li>In general, a missing file will not result in any error as files will be generated automatically.</li>
+      <li>To simulate a missing file, simple run and exit program, locate the fridgetData folder and delete the savedList.txt file.</li>
+    </ol>
+  </li>
+</ol>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/alvynben">alvynben</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+  </body>
+</html>

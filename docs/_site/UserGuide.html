@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>User Guide | tp</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="User Guide" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/UserGuide.html" />
+<meta property="og:url" content="http://localhost:4000/UserGuide.html" />
+<meta property="og:site_name" content="tp" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="User Guide" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"User Guide","url":"http://localhost:4000/UserGuide.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ae3da29a08a610315cb350bae1f8fb4ee6f9a321">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>User Guide</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/alvynben/tp" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="user-guide">User Guide</h1>
+
+<hr>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Fridget is a <strong> desktop app built to be used via Command Line Interface </strong> (CLI). Fridget is an easier way for you to keep track of the items in your fridge. It is convenient to add, remove, and find items stored in your fridge. Fridget also reminds you when items are nearing expiry.</p>
+
+<p>If you want to start taking charge of your fridge and stop wasting your food, Fridget is for you.</p>
+
+<ul>
+  <li>Forget scribbling your items on a piece of paper.</li>
+  <li>Forget throwing your food away when it goes bad.</li>
+  <li>Forget expensive smart fridges that are more trouble than they are worth.</li>
+</ul>
+
+<p>Use Fridget today.</p>
+
+<p>This guide is meant for you to quickly get started with Fridget so you can stop worrying about expired food and start enjoying life.</p>
+
+<h3 id="legend">Legend:</h3>
+
+<p><code class="language-plaintext highlighter-rouge">add ITEM_NAME /EXPIRY_DATE</code> - Texts inside <code class="language-plaintext highlighter-rouge">this</code> box refers to either input text by the user or output from Fridget in the terminal.
+It could also refer to file names like <code class="language-plaintext highlighter-rouge">Fridget.jar</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ITEM_NAME</code> or <code class="language-plaintext highlighter-rouge">EXPIRY_DATE</code> - Texts which have been capitalized refer to parameters which the user should type in. For example:
+A command like <code class="language-plaintext highlighter-rouge">add ITEM_NAME /EXPIRY DATE</code> would actually be typed by the user as <code class="language-plaintext highlighter-rouge">add burger /2021-11-11</code>.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<ol>
+  <li>Ensure that you have Java 11 or above installed on your computer.</li>
+  <li>Download the latest <code class="language-plaintext highlighter-rouge">Fridget.jar</code> from <a href="https://github.com/AY2122S1-CS2113T-W12-4/tp/releases/download/v1.0/fridget.jar">here</a>.</li>
+  <li>Copy the file into the folder you want to store Fridget’s data.</li>
+  <li>Launch the terminal on your computer. You can refer to <a href="https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955">this website</a> on how to launch the terminal on your specific OS (Windows/Mac/Linux).</li>
+  <li>Type in <code class="language-plaintext highlighter-rouge">java -jar Fridget.jar</code> into the terminal to launch the app.</li>
+  <li>Type your command in the command box and press Enter to execute it.
+    <ul>
+      <li>Some example commands you can try:
+        <ul>
+          <li>help: lists all commands and input format.</li>
+          <li>reset: prompts the user to confirm clearing all data.</li>
+          <li>exit: close the app.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Congratulations! You should be good to go!</li>
+</ol>
+
+<p><img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png" height="20" width="20"> <strong>Tip:</strong>
+You can key in <code class="language-plaintext highlighter-rouge">java -version</code> into your terminal to check your version of java.</p>
+
+<p>This guide has been arranged according to the features offered by Fridget.
+You can see the list of features in the Features section below.</p>
+
+<hr>
+
+<h2 id="features">Features</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Command Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add an item</td>
+      <td><code class="language-plaintext highlighter-rouge">add ITEM_NAME /EXPIRY_DATE</code></td>
+    </tr>
+    <tr>
+      <td>Remove an item</td>
+      <td><code class="language-plaintext highlighter-rouge">remove ITEM_NAME</code></td>
+    </tr>
+    <tr>
+      <td>Get help</td>
+      <td><code class="language-plaintext highlighter-rouge">help</code></td>
+    </tr>
+    <tr>
+      <td>Reset all items</td>
+      <td><code class="language-plaintext highlighter-rouge">reset</code></td>
+    </tr>
+    <tr>
+      <td>List all items</td>
+      <td><code class="language-plaintext highlighter-rouge">list -OPTIONAL_SORT_TYPE</code></td>
+    </tr>
+    <tr>
+      <td>Find an item</td>
+      <td><code class="language-plaintext highlighter-rouge">find KEYWORD</code></td>
+    </tr>
+    <tr>
+      <td>List expiring items</td>
+      <td><code class="language-plaintext highlighter-rouge">expiring</code></td>
+    </tr>
+    <tr>
+      <td>See notifications</td>
+      <td><code class="language-plaintext highlighter-rouge">notifs</code></td>
+    </tr>
+    <tr>
+      <td>Exit Fridget</td>
+      <td><code class="language-plaintext highlighter-rouge">exit</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="add-an-item-into-fridget-add">Add an item into Fridget: <code class="language-plaintext highlighter-rouge">add</code>
+</h3>
+<p>Use this command to add your items into Fridget.</p>
+
+<p>Format: add ITEM_NAME /EXPIRY_DATE</p>
+
+<p><img class="emoji" title=":exclamation:" alt=":exclamation:" src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png" height="20" width="20"> Caution:
+The <code class="language-plaintext highlighter-rouge">ITEM_NAME</code> can be in a natural language format.</p>
+
+<p><img class="emoji" title=":exclamation:" alt=":exclamation:" src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png" height="20" width="20"> Caution:
+The <code class="language-plaintext highlighter-rouge">EXPIRY_DATE</code> must be in the <code class="language-plaintext highlighter-rouge">YYYY-MM-DD</code> format.</p>
+
+<p>Example of usage:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: add burger /2021-11-11
+<span class="gs">________________________________________</span><span class="ge">__</span>
+You have successfully added:
+    burger | Qty: 1 | 11 Nov 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: add burger /2021-11-11
+<span class="gs">________________________________________</span><span class="ge">__</span>
+You have successfully increased the quantity of:
+    burger | Qty: 1-&gt;2 | 11 Nov 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<h3 id="remove-an-item-from-fridget-remove">Remove an item from Fridget: <code class="language-plaintext highlighter-rouge">remove</code>
+</h3>
+<p>Use this command to remove items from Fridget.</p>
+
+<p>Format: remove ITEM_NAME</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">ITEM_NAME</code> can be in a natural language format.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ITEM_NAME</code> should be the same or be a subset of the name of the item you are trying to remove.</li>
+</ul>
+
+<p>Example of usage:</p>
+
+<p><ins>If there is only one item with a name containing <code class="language-plaintext highlighter-rouge">ITEM_NAME</code></ins></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: remove burger
+<span class="gs">________________________________________</span><span class="ge">__</span>
+You have successfully removed:
+    burger | Qty: 1 | 11 Nov 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<p><ins>If there are multiple items with a name containing <code class="language-plaintext highlighter-rouge">ITEM_NAME</code></ins></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">________________________________________</span><span class="ge">__</span>
+userInput: remove burger
+<span class="gs">________________________________________</span><span class="ge">__</span>
+Which item would you like to be removed? Type the index of the item below.
+<span class="p">    1.</span> burger | Qty: 1 | 11 Nov 2021
+<span class="p">    2.</span> burger | Qty: 1 | 23 Sep 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+userInput: 1
+<span class="gs">________________________________________</span><span class="ge">__</span>
+You have successfully removed:
+    burger | Qty: 1 | 11 Nov 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<p><ins>If there are multiple quantities of the same item</ins></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__________________________________________
+userInput: remove burger
+__________________________________________
+Which item would you like to be removed? Type the index of the item below.
+    1. burger | Qty: 3 | 11 Nov 2021
+    2. burger | Qty: 1 | 23 Sep 2021
+__________________________________________
+userInput: 1
+__________________________________________
+There are 3 items, how many would like to remove?
+__________________________________________
+userInput: 2
+__________________________________________
+You have successfully removed:
+    burger | Qty: 2 | 11 Nov 2021
+__________________________________________
+</code></pre></div></div>
+
+<h3 id="get-help-help">Get help: <code class="language-plaintext highlighter-rouge">help</code>
+</h3>
+<p>Prints all available commands in Fridget.</p>
+
+<p>Format: help</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">help</code></li>
+</ul>
+
+<p>Example of usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: help
+__________________________________________
+Generating command list...
+__________________________________________
+List of commands available:
+
+add INGREDIENT_NAME /EXPIRY_DATE(format: yyyy-mm-dd) [eg. add bacon /2022-11-11]
+-&gt; Adds an ingredient and its expiry date to the ingredient list.
+
+find KEYWORD [eg. find bacon]
+-&gt; Find and print all ingredient associated with keyword.
+
+remove INGREDIENT_NAME [eg. delete bacon]
+-&gt; Removes the ingredient from the ingredient list.
+
+list -e
+-&gt; List out all the ingredients starting with earliest expiry date.
+
+list -r
+-&gt; List out all the ingredients based on the order added.
+
+list
+-&gt; List out all the ingredients in alphabetical order.
+
+expiring
+-&gt; Prints out ingredients expiring within a week
+
+notifs
+-&gt; Toggle the notification on or off depending on previous state. Default mode is on.
+
+reset
+-&gt; Deletes all the previous ingredient entries from the reader.
+
+exit
+-&gt; Exits the program.
+__________________________________________
+</code></pre></div></div>
+
+<h3 id="reset-all-items-reset">Reset all items: <code class="language-plaintext highlighter-rouge">reset</code>
+</h3>
+<p>Resets all your items in the ingredient list.</p>
+
+<p>Format: reset</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">reset</code></li>
+</ul>
+
+<p>Example of usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: reset
+__________________________________________
+Are you sure you want to reset everything in the ingredient list? (Y/N)
+__________________________________________
+userInput: N
+__________________________________________
+Abort reset command.
+__________________________________________
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: reset
+__________________________________________
+Are you sure you want to reset everything in the ingredient list? (Y/N)
+__________________________________________
+userInput: Y
+__________________________________________
+Ingredient list has been reset successfully.
+__________________________________________
+</code></pre></div></div>
+
+<h3 id="list-all-items-in-fridget-list">List all items in Fridget: <code class="language-plaintext highlighter-rouge">list</code>
+</h3>
+<p>List all items stored in Fridget.</p>
+
+<p>Format: list -OPTIONAL_SORT_TYPE or list OPTIONAL_SORT_TYPE</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">list</code> Lists items in alphabetical order.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">list -e</code> Lists items in ascending order of expiry dates.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">list -r</code> Lists items in order of how recent it is added.</li>
+</ul>
+
+<p>Example of usage:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: list
+<span class="gs">________________________________________</span><span class="ge">__</span>
+List sorted by item name:
+<span class="p">    1.</span> fish Cake | Qty: 2 | 12 Dec 2020
+<span class="p">    2.</span> frozen duck | Qty: 1 | 10 Oct 2022
+<span class="p">    3.</span> Yoghurt cake | Qty: 1 | 15 Oct 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: list -e
+__________________________________________
+List sorted by expiry date:
+    1. fish Cake | Qty: 2 | 12 Dec 2020
+    2. Yoghurt cake | Qty: 1 | 15 Oct 2021
+    3. frozen duck | Qty: 1 | 10 Oct 2022
+__________________________________________
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: list -r
+__________________________________________
+List sorted by earliest added:
+    1. fish Cake | Qty: 2 | 12 Dec 2020
+    2. Yoghurt cake | Qty: 1 | 15 Oct 2021
+    3. frozen duck | Qty: 1 | 10 Oct 2022
+__________________________________________
+</code></pre></div></div>
+
+<h3 id="find-items-stored-in-fridget-find">Find items stored in Fridget: <code class="language-plaintext highlighter-rouge">find</code>
+</h3>
+<p>Find all items associated with the keyword.</p>
+
+<p>Format: find KEYWORD</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">KEYWORD</code> should be the same as the name of the item you are looking for.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">KEYWORD</code> can also be a part of the name of the item.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: find burger
+__________________________________________
+These are the matching ingredients:
+    1. burger | Qty: 1 | 23 Sep 2030
+__________________________________________
+userInput: find apple
+__________________________________________
+No matching ingredient found!
+__________________________________________
+</code></pre></div></div>
+
+<h3 id="lists-all-items-expiring-soon-expiring">Lists all items expiring soon: <code class="language-plaintext highlighter-rouge">expiring</code>
+</h3>
+<p>Lists all items that are expired or expiring. Items are considered to be expiring if the expiry date is less than 7 days away from today.</p>
+
+<p>Format: expiring</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">expiring</code></li>
+</ul>
+
+<p>Example of usage:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: expiring
+<span class="gs">________________________________________</span><span class="ge">__</span>
+Expiring/Expired Items:
+<span class="p">    1.</span> fish Cake | Qty: 2 | 12 Dec 2020
+<span class="p">    2.</span> Yoghurt cake | Qty: 1 | 15 Oct 2021
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<h3 id="see-notifications-notifs">See notifications: <code class="language-plaintext highlighter-rouge">notifs</code>
+</h3>
+<p>Display notification reminder scheduled at 6 hours interval. Can be toggled on or off.</p>
+
+<p>Format: notifs</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">notifs</code></li>
+</ul>
+
+<p>Example of usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: notifs
+__________________________________________
+Turning notification off!
+__________________________________________
+userInput: notifs
+__________________________________________
+Turning notification on!
+__________________________________________
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ___________________________________________________
+|                                                |X||
+|      ___            _         __        ______    |
+|     / _ \___ __ _  (_)__  ___/ /__ ____/ / / /    |
+|    / , _/ -_)  ' \/ / _ \/ _  / -_) __/_/_/_/     |
+|   /_/|_|\__/_/_/_/_/_//_/\_,_/\__/_/ (_|_|_)      |
+|   =============================================   |
+|                                                   |
+|    "If you don't take time to take care of your   |
+|    health now, you're gonna have to make time     |
+|    for feeling sick and tired later."             |
+|                                                   |
+|            Always remember to eat more            |
+|              Fruits and Vegetables!               |
+|___________________________________________________|
+</code></pre></div></div>
+
+<h3 id="stop-fridget-exit">Stop Fridget: <code class="language-plaintext highlighter-rouge">exit</code>
+</h3>
+<p>Safely shut down Fridget.</p>
+
+<p>Format: exit</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">exit</code></li>
+</ul>
+
+<p>Example of usage:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: exit
+<span class="gs">________________________________________</span><span class="ge">__</span>
+We'll help you remember everything you told us :)
+See you again!~~
+<span class="gs">________________________________________</span><span class="ge">__</span>
+</code></pre></div></div>
+
+<hr>
+
+<h2 id="things-to-note">Things to note</h2>
+
+<ol>
+  <li>For commands help, expiring, reset and notifs, adding a space and random String behind will still trigger the command.</li>
+</ol>
+
+<p>Example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: notifs ajsdfasf
+__________________________________________
+Turning notification off!
+____________________________________________
+userInput: reset jadfgasgdka
+__________________________________________
+Are you sure you want to reset everything in the ingredient list? (Y/N)
+__________________________________________
+</code></pre></div></div>
+
+<ol>
+  <li>If no item is recorded, Fridget will prompt you to get help.</li>
+</ol>
+
+<p>Example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>userInput: find a
+__________________________________________
+You currently have nothing in your fridge.
+Input "help" to get started!
+__________________________________________
+userInput: expiring
+__________________________________________
+You currently have nothing in your fridge.
+Input "help" to get started!
+__________________________________________
+</code></pre></div></div>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/alvynben">alvynben</a></p>
+        
+        <p><small>Hosted on GitHub Pages — Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+  </body>
+</html>
